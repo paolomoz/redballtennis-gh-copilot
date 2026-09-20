@@ -444,7 +444,7 @@ main .section.notfound hr {
   margin: 8px 0;
 }
 
-main .section.notfound h2 {
+main .section.notfound h1, .section.notfound h2 {
   margin: 8px 0;
   font-family: var(--font-display);
   font-size: 76px;
