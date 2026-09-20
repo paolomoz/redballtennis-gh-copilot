@@ -5,13 +5,12 @@
    BEM class names are locked to the gated prototype markup — do not rename. */
 /* stylelint-disable selector-class-pattern */
 
-/* chrome height reservation (probed in gates: desktop 195 = 60+105+30,
-   mobile 74 = 44+30; topbar hidden on mobile). Mirrors --nav-height.
-   Scoped to the chrome host: a bare `header` selector also clamps
-   block-internal <header> elements (auth-prompt .screen-header). */
-body > header {
-  height: 195px;
-}
+/* chrome height reservation lives in styles.css as
+   `body > header { height: var(--nav-height) }` (desktop 195 = 60+105+30,
+   mobile 74 = 44+30, confirmation 88/66) — do NOT redeclare it here:
+   an unscoped `header` selector clamps block-internal <header> elements
+   (auth-prompt .screen-header), and a same-specificity duplicate here
+   would outrank the --nav-height indirection (block CSS loads later). */
 
 header .site-header {
   --court-blue: #0A2396;
@@ -369,9 +368,6 @@ header .site-header .breadcrumb__divider {
 
 /* ---- mobile (<768px) --------------------------------------------------- */
 @media (width <= 767px) {
-  body > header {
-    height: 74px;
-  }
 
   header .site-header .topbar {
     display: none;
