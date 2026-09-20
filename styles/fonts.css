@@ -1,4 +1,30 @@
 /* stylelint-disable max-line-length */
+/* replica: the captured brand faces (mirrors stardust/prototypes/canon.css);
+   EDS stacks reference 'Graphik*' first, Roboto is the metric fallback */
+@font-face {
+  font-family: 'Graphik XXCond Bold';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('../fonts/GraphikXXCondensed-Bold-App.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Graphik';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('../fonts/Graphik-Regular-App.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Graphik Semibold';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('../fonts/Graphik-Semibold-App.woff2') format('woff2');
+}
+
 @font-face {
   font-family: roboto-condensed;
   font-style: normal;
