@@ -12,3 +12,8 @@
 {"t":"2026-09-20T20:04:23.226Z","path":"/nav","step":"verify","ok":true}
 {"t":"2026-09-20T20:04:23.314Z","path":"/nav-confirmation","step":"verify","ok":true}
 {"t":"2026-09-20T20:04:23.558Z","path":"/footer","step":"verify","ok":true}
+{"t":"2026-09-20T20:30:34.239Z","path":"/en/home/free-racquet-pack","step":"verify","ok":true}
+{"t":"2026-09-20T20:30:34.244Z","path":"/en/home","step":"verify","ok":true}
+{"t":"2026-09-20T20:30:34.258Z","path":"/en/home/host","step":"verify","ok":true}
+{"t":"2026-09-20T20:30:34.266Z","path":"/en/home/play","step":"verify","ok":true}
+{"t":"2026-09-20T20:30:49.788Z","path":"/index","step":"verify","ok":true}
