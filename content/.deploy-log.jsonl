@@ -1,0 +1,14 @@
+{"t":"2026-09-20T20:03:45.558Z","path":"/en/home/free-racquet-pack","step":"verify","ok":true}
+{"t":"2026-09-20T20:03:45.552Z","path":"/en/home/404","step":"verify","ok":true}
+{"t":"2026-09-20T20:03:45.554Z","path":"/en/home/confirmation","step":"verify","ok":true}
+{"t":"2026-09-20T20:03:45.618Z","path":"/en/home/host","step":"verify","ok":true}
+{"t":"2026-09-20T20:03:50.147Z","path":"/footer-confirmation","step":"verify","ok":true}
+{"t":"2026-09-20T20:03:50.498Z","path":"/en/home","step":"verify","ok":true}
+{"t":"2026-09-20T20:03:50.706Z","path":"/en/home/play","step":"verify","ok":true}
+{"t":"2026-09-20T20:03:50.883Z","path":"/footer","step":"verify","ok":false,"why":"about:error in delivered html"}
+{"t":"2026-09-20T20:03:54.382Z","path":"/nav-confirmation","step":"verify","ok":false,"why":"about:error in delivered html"}
+{"t":"2026-09-20T20:03:55.047Z","path":"/index","step":"verify","ok":true}
+{"t":"2026-09-20T20:03:55.599Z","path":"/nav","step":"verify","ok":false,"why":"about:error in delivered html"}
+{"t":"2026-09-20T20:04:23.226Z","path":"/nav","step":"verify","ok":true}
+{"t":"2026-09-20T20:04:23.314Z","path":"/nav-confirmation","step":"verify","ok":true}
+{"t":"2026-09-20T20:04:23.558Z","path":"/footer","step":"verify","ok":true}

@@ -1,0 +1,104 @@
+{
+  "/en/home/404": {
+    "status": "live",
+    "attempts": 1,
+    "ts": "2026-09-20T20:03:39.009Z",
+    "put": 201,
+    "preview": 200,
+    "live": 200,
+    "verify": "ok"
+  },
+  "/en/home/confirmation": {
+    "status": "live",
+    "attempts": 1,
+    "ts": "2026-09-20T20:03:39.010Z",
+    "put": 201,
+    "preview": 200,
+    "live": 200,
+    "verify": "ok"
+  },
+  "/en/home/free-racquet-pack": {
+    "status": "live",
+    "attempts": 1,
+    "ts": "2026-09-20T20:03:39.010Z",
+    "put": 201,
+    "preview": 200,
+    "live": 200,
+    "verify": "ok"
+  },
+  "/en/home/host": {
+    "status": "live",
+    "attempts": 1,
+    "ts": "2026-09-20T20:03:39.010Z",
+    "put": 201,
+    "preview": 200,
+    "live": 200,
+    "verify": "ok"
+  },
+  "/en/home/play": {
+    "status": "live",
+    "attempts": 1,
+    "ts": "2026-09-20T20:03:45.568Z",
+    "put": 201,
+    "preview": 200,
+    "live": 200,
+    "verify": "ok"
+  },
+  "/en/home": {
+    "status": "live",
+    "attempts": 1,
+    "ts": "2026-09-20T20:03:45.568Z",
+    "put": 201,
+    "preview": 200,
+    "live": 200,
+    "verify": "ok"
+  },
+  "/footer-confirmation": {
+    "status": "live",
+    "attempts": 1,
+    "ts": "2026-09-20T20:03:45.568Z",
+    "put": 201,
+    "preview": 200,
+    "live": 200,
+    "verify": "ok"
+  },
+  "/footer": {
+    "status": "live",
+    "attempts": 2,
+    "ts": "2026-09-20T20:04:17.984Z",
+    "put": 200,
+    "preview": 200,
+    "live": 200,
+    "verify": "ok",
+    "lastError": "about:error in delivered html"
+  },
+  "/index": {
+    "status": "live",
+    "attempts": 1,
+    "ts": "2026-09-20T20:03:50.149Z",
+    "put": 200,
+    "preview": 200,
+    "live": 200,
+    "verify": "ok"
+  },
+  "/nav-confirmation": {
+    "status": "live",
+    "attempts": 2,
+    "ts": "2026-09-20T20:04:17.986Z",
+    "put": 200,
+    "preview": 200,
+    "live": 200,
+    "verify": "ok",
+    "lastError": "about:error in delivered html"
+  },
+  "/nav": {
+    "status": "live",
+    "attempts": 2,
+    "ts": "2026-09-20T20:04:17.986Z",
+    "put": 200,
+    "preview": 200,
+    "live": 200,
+    "verify": "ok",
+    "lastError": "about:error in delivered html"
+  }
+}

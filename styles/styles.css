@@ -407,9 +407,12 @@ main .section.shop hr {
   margin: 8px 0;
 }
 
+/* the prototype's hr.shop__rule (17px invisible spacer) cannot be authored —
+   an <hr> in default content SPLITS EDS sections — so its height is folded
+   into the CTA's top margin: 8 (text margin) + 17 (rule) + 8 (cta margin) */
 main .section.shop p.button-wrapper {
   width: 16.6667%;
-  margin: 8px auto;
+  margin: 33px auto 8px;
   padding: 0 15px;
 }
 

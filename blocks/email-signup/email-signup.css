@@ -150,6 +150,20 @@
   padding: 0;
 }
 
+/* ---- variant: need (in-band form on play, play.css .need .leadgen) --------
+   the form sits INSIDE the need band (sibling of the need-cards block in one
+   section): full-width (no 15px side margins), no bottom block pad (the
+   band's bottom pad is .signup-inner's); top gap = block padding-top 8 +
+   leadgen padding-top 8 (prototype: leadgen margin-top 8 + padding-top 8) */
+
+.email-signup.need {
+  padding-bottom: 0;
+}
+
+.email-signup.need .leadgen {
+  margin: 0;
+}
+
 /* ---- mobile (<768px) ---------------------------------------------------- */
 
 @media (width <= 767px) {
@@ -159,6 +173,16 @@
 
   .email-signup .leadgen {
     margin: 0 4px;
+  }
+
+  /* play mobile: leadgen margin-top collapses to 0 (play.css) — the block's
+     8px top pad would double the gap above the form */
+  .email-signup.need {
+    padding-top: 0;
+  }
+
+  .email-signup.need .leadgen {
+    margin: 0;
   }
 
   .email-signup.host .leadgen {

@@ -202,3 +202,12 @@
   .need-cards .where__text :is(h1, h2, h3) { font-size: 44px; line-height: 48.4px; }
   .need-cards .where__text p { font-size: 16px; }
 }
+
+/* merged need band (play): the email-signup block follows in the SAME
+   section — the prototype's need__pad bottom pad closes the whole band
+   (form included) and is carried there by email-signup's .signup-inner,
+   so zero it here or the gap between the inner stripe and the form
+   doubles */
+.section.need-cards-container:has(> .email-signup-wrapper) .need-cards .need__pad {
+  padding-bottom: 0;
+}
