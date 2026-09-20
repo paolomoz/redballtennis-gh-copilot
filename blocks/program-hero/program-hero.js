@@ -38,7 +38,13 @@ export default async function decorate(block) {
   const heading = block.querySelector('h1, h2, h3, h4, h5, h6');
   if (!heading) return;
   const ps = [...block.querySelectorAll('p')];
-  const mediaP = ps.find((p) => p.querySelector('picture, img'));
+  // the HTML pipeline unwraps picture-only paragraphs — the authored
+  // <p><img> arrives as a BARE <picture> cell child (no <p>)
+  let mediaP = ps.find((p) => p.querySelector('picture, img'));
+  if (!mediaP) {
+    const bare = block.querySelector('picture, img');
+    if (bare) mediaP = bare.closest('p') || bare;
+  }
   const isTagline = (p) => !p.querySelector('a, picture, img')
     && p.querySelector('strong, b') && p.querySelector('em, i');
   const tagline = host ? null : ps.find(isTagline);
