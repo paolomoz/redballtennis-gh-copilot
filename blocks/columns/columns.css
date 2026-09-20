@@ -1,32 +1,147 @@
-.columns > div {
+/* columns — stock EDS collection styles + redballtennis replica variant
+   `howto`. howto values lifted verbatim from stardust/prototypes/play.css
+   (.howto__*), re-scoped under `.columns.howto`. */
+
+/* ---- variant howto: section band reset + blue ball-texture ground ------- */
+
+.section.columns-container:has(> .columns-wrapper > .columns.howto) {
+  margin: 0;
+  padding: 0;
+}
+
+.columns.howto {
+  --howto-display: 'Graphik XXCond Bold', 'Roboto Condensed', sans-serif;
+  --howto-body: 'Graphik', 'Roboto', sans-serif;
+  padding-bottom: 8px;
+}
+
+.columns.howto .howto__bg {
+  background: #0A2396 url('/assets/host-play-bg.jpg') 50% 50% / cover no-repeat;
+  padding: 64px 0 72px;
+}
+
+.columns.howto .howto__row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  /* live band grid is capped at 1440 and centered (1920 probe: cols still
+     600px at x360/x960) — without the cap the columns go fluid and the
+     bullet blocks re-wrap */
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.columns.howto .howto__col { padding: 32px 0; margin-bottom: 8px; }
+.columns.howto .howto__col:nth-child(1) { grid-column: 2 / 7; }
+.columns.howto .howto__col:nth-child(2) { grid-column: 7 / 12; }
+
+.columns.howto .howto__iconbox {
+  margin: 8px 0 0;
+  padding: 8px 0;
+  text-align: center;
+}
+.columns.howto .howto__iconbox p { margin: 0; line-height: 0; }
+.columns.howto .howto__iconbox img {
+  display: block;
+  margin: 0 auto;
+  width: 120px;
+  height: auto;
+}
+
+.columns.howto .howto__text {
+  width: 66.6667%;
+  margin: 16px auto 8px;
+  padding: 0 15px;
+  font-family: var(--howto-body);
+  color: #fff;
+}
+
+.columns.howto .howto__text :is(h1, h2, h3) {
+  margin: 0;
+  font-family: var(--howto-display);
+  font-size: 76px;
+  font-weight: 500;
+  line-height: 83.6px;
+  color: #fff;
+  text-align: center;
+}
+
+/* the prototype separates the heading and every item with a &nbsp; spacer
+   paragraph (18px/24px line box) — modeled here as a 24px top margin */
+.columns.howto .howto__text p {
+  margin: 24px 0 0;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+}
+
+/* items may also be authored as a list — live renders bold centered lines
+   with no markers, so the list is presentationally flattened */
+.columns.howto .howto__text ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.columns.howto .howto__text li {
+  margin: 24px 0 0;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .section.columns-container:has(> .columns-wrapper > .columns.howto) {
+    margin: 0;
+    padding: 0;
+  }
+  .columns.howto .howto__bg { padding: 32px 0 40px; }
+  .columns.howto .howto__row {
+    display: flex;
+    flex-direction: column;
+    margin: 0 12px;
+  }
+  .columns.howto .howto__col { padding: 16px 0; margin-bottom: 8px; }
+  .columns.howto .howto__iconbox img { width: 104px; }
+  .columns.howto .howto__text {
+    width: auto;
+    margin: 16px 4px 8px;
+    padding: 0;
+  }
+  .columns.howto .howto__text :is(h1, h2, h3) { font-size: 44px; line-height: 48.4px; }
+  .columns.howto .howto__text p,
+  .columns.howto .howto__text li { font-size: 16px; }
+}
+
+/* ---- stock collection styles (all other variants) ----------------------- */
+
+.columns:not(.howto) > div {
   display: flex;
   flex-direction: column;
 }
 
-.columns img {
+.columns:not(.howto) img {
   width: 100%;
 }
 
-.columns > div > div {
+.columns:not(.howto) > div > div {
   order: 1;
 }
 
-.columns > div > .columns-img-col {
+.columns:not(.howto) > div > .columns-img-col {
   order: 0;
 }
 
-.columns > div > .columns-img-col img {
+.columns:not(.howto) > div > .columns-img-col img {
   display: block;
 }
 
 @media (width >= 900px) {
-  .columns > div {
+  .columns:not(.howto) > div {
     align-items: center;
     flex-direction: unset;
     gap: 24px;
   }
 
-  .columns > div > div {
+  .columns:not(.howto) > div > div {
     flex: 1;
     order: unset;
   }

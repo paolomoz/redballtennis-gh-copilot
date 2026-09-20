@@ -1,37 +1,194 @@
-.hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
-}
+/* hero — landing-page lead section.
+   Values lifted verbatim from stardust/prototypes/index.css (.hero),
+   rescoped from `section.hero` to the block class `.hero`.
+   Font stacks resolve to the foundation tokens (Graphik names first,
+   Roboto substitutes ship in styles/fonts.css — licensed Graphik never rehosted). */
 
 .hero {
-  position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  background: #fff;
+  padding-bottom: 8px;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+.hero .hero-row {
+  display: flex;
+  align-items: center;
 }
 
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+.hero .hero-left {
+  width: 58.3333%;
+  padding: 48px 45px 64px;
 }
 
-.hero img {
-  object-fit: cover;
+.hero .hero-title :is(h1, h2, h3) {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: 100px;
+  font-weight: 500;
+  line-height: 110px;
+  color: var(--rally-red);
+  text-transform: none;
+}
+
+.hero .hero-tagline :is(p) {
+  font-family: var(--font-body);
+  color: var(--court-blue);
+}
+
+/* authored <em>RED</em> carries the red prefix (decoration rides a preserved tag) */
+.hero .hero-tagline :is(p) em {
+  color: var(--rally-red);
+  font-style: normal;
+}
+
+.hero .hero-tagline-desktop :is(p) {
+  font-size: 36px;
+  line-height: 24px;
+  margin: 0 0 24px;
+}
+
+.hero .hero-tagline-mobile {
+  display: none;
+}
+
+.hero .hero-tagline-mobile :is(p) {
+  font-size: 22px;
+  line-height: 24px;
+  font-style: italic; /* live mobile variant wraps the whole tagline in <i> */
+}
+
+.hero .hero-tagline-mobile :is(p) em {
+  font-style: italic;
+}
+
+.hero .hero-rule {
+  border: 0;
+  border-top: 1px solid transparent;
+  margin: 0 0 30px; /* live: invisible hr at y 424 inside a 55px junction */
+}
+
+.hero .hero-copy :is(p) {
+  margin: 0 0 8px;
+  font-family: var(--font-body);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 34px;
+  color: var(--ink);
+}
+
+.hero .hero-media {
+  width: 41.6667%;
+  align-self: center;
+  padding: 64px 0;
+  background: url('/assets/vector-background-red.svg') 50% 50% / cover no-repeat;
+  display: flex;
+  justify-content: center;
+}
+
+.hero .hero-embed {
+  width: 75%;
+  max-width: 100%;
+  margin: 8px auto;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 22.8571px;
+}
+
+.hero .hero-embed iframe {
   width: 100%;
-  height: 100%;
+  max-width: 560px;
+  height: 315px;
+  border: 0;
 }
 
-@media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
+/* hand-with-ball: mobile-only hero art */
+.hero .hero-hand {
+  display: none;
+}
+
+/* mobile-only red separator band (live: the red-bg separator container renders
+   17px #C80F2F at y863–880; zero-height on desktop) */
+.hero .hero-band {
+  display: none;
+}
+
+@media (width <= 767px) {
+  .hero .hero-row {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 32px 0 0;
+  }
+
+  .hero .hero-left {
+    width: auto;
+    padding: 0 8px 32px;
+  }
+
+  .hero .hero-topline {
+    display: flex;
+    align-items: center;
+  }
+
+  .hero .hero-texts {
+    width: 58.3333%;
+    padding: 0 4px;
+  }
+
+  .hero .hero-title :is(h1, h2, h3) {
+    font-size: 54px;
+    line-height: 59.4px;
+    margin: 0;
+  }
+
+  .hero .hero-tagline-desktop {
+    display: none;
+  }
+
+  .hero .hero-tagline-mobile {
+    display: block;
+  }
+
+  .hero .hero-tagline-mobile :is(p) {
+    margin: 16px 0 0;
+  }
+
+  .hero .hero-rule {
+    display: none;
+  }
+
+  .hero .hero-hand {
+    display: flex;
+    justify-content: center;
+    width: 41.6667%;
+    padding: 0 4px;
+    background: url('/assets/vector-background-red.svg') 100% 50% / cover no-repeat;
+  }
+
+  .hero .hero-hand :is(img) {
+    display: block;
+    width: 50%;
+    height: auto;
+  }
+
+  .hero .hero-copy :is(p) {
+    margin: 24px 4px 8px;
+  }
+
+  .hero .hero-band {
+    display: block;
+    height: 17px;
+    background: var(--rally-red);
+  }
+
+  .hero .hero-media {
+    width: auto;
+    align-self: stretch;
+    margin: 0;
+    padding: 32px 0;
+  }
+
+  .hero .hero-embed {
+    width: 330px;
+    margin: 8px auto;
+    padding: 0 4px;
   }
 }

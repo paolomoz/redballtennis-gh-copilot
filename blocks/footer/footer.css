@@ -1,20 +1,140 @@
-footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+/* footer — redballtennis.com replica chrome.
+   Values lifted from stardust/prototypes/canon.css (gated vs live), scoped under
+   footer .site-footer. Fonts: licensed Graphik never rehosted — brand name first,
+   Roboto metric-matched substitute (stardust/eds-conversion-log.md).
+   BEM class names are locked to the gated prototype markup — do not rename. */
+/* stylelint-disable selector-class-pattern */
+
+footer .site-footer {
+  --footer-blue: #092396;
+  --hover-lime: #cfff05;
+  --font-body: 'Graphik', 'Roboto', sans-serif;
+
+  background: transparent;
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
-}
-
-footer .footer p {
+/* scoped resets against global styles.css */
+footer .site-footer p,
+footer .site-footer ul {
   margin: 0;
+  padding: 0;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+footer .site-footer__inner {
+  background: var(--footer-blue);
+  padding: 32px 0 64px;
+}
+
+footer .site-footer__col {
+  margin-left: 8.3333%;
+  width: 75%;
+}
+
+footer .site-footer__rule {
+  border: 0;
+  border-top: 1px solid transparent;
+  margin: 7px 0;
+}
+
+footer .site-footer__rule--lead {
+  display: none;
+}
+
+footer .site-footer__rule--mid {
+  display: none;
+}
+
+footer .site-footer__rule--end {
+  margin: 20px 0;
+  display: block;
+}
+
+footer .site-footer__logo {
+  display: block;
+  width: 100px;
+  height: 62.5px;
+}
+
+footer .site-footer__nav {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .site-footer__social {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer .site-footer__sites {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 22.8571px;
+}
+
+footer .site-footer__sites a {
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: -0.03em;
+  transition: color 0.3s;
+}
+
+footer .site-footer__sites a:hover {
+  color: var(--hover-lime);
+}
+
+footer .site-footer__hash {
+  display: none;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
+}
+
+/* ---- mobile (<768px) --------------------------------------------------- */
+@media (width <= 767px) {
+  footer .site-footer__inner {
+    padding: 16px 0 32px;
+  }
+
+  footer .site-footer__rule--lead {
+    display: block;
+  }
+
+  footer .site-footer__rule--mid {
+    display: block;
+  }
+
+  footer .site-footer__hash {
+    display: block;
+  }
+
+  footer .site-footer__hash :is(b, strong) {
+    font-size: 16px;
+  }
+
+  footer .site-footer__nav {
+    flex-direction: column;
+    gap: 32px;
+    align-items: start;
+  }
+
+  footer .site-footer__sites {
+    flex-direction: column;
+    gap: 16px;
   }
 }
+
+/* confirmation template: no footer on the live Auth0 surface */
+body.confirmation footer { display: none; }

@@ -1,0 +1,204 @@
+/* need-cards — "WHAT YOU NEED TO PLAY" / "WHERE TO PLAY" band. Values lifted
+   verbatim from stardust/prototypes/play.css (.need__*, .where__*), re-scoped
+   under `.need-cards`. The prototype's &nbsp; spacer paragraphs are modeled
+   as CSS margins (authored whitespace never survives the pipeline). The
+   prototype section's OUTER red stripe closes the lead-gen band below this
+   block — it belongs to the email-signup section, not this block; the INNER
+   stripe (need__colwrap) is reproduced here. */
+
+.section.need-cards-container {
+  margin: 0;
+  padding: 0;
+}
+
+.need-cards {
+  --nc-display: 'Graphik XXCond Bold', 'Roboto Condensed', sans-serif;
+  --nc-body: 'Graphik', 'Roboto', sans-serif;
+  padding-top: 8px;
+}
+
+.need-cards .need__pad { padding-bottom: 32px; }
+/* live AEM wrappers are BFCs: vertical margins do not collapse — flow-root
+   reproduces that */
+.need-cards .need__inner { padding-top: 8px; display: flow-root; }
+
+/* full-width wrapper carrying the band's INNER red stripe (live: the
+   horizontal-bottom-red-stripe container wraps the what/where column only) */
+.need-cards .need__colwrap { display: flow-root; position: relative; }
+.need-cards .need__colwrap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* live's inner stripe sits flush at its container's bottom edge (measured
+     y 3552–3567 = container end), unlike the shared section stripe */
+  bottom: 0;
+  height: 16px;
+  background-color: #C80F2F;
+  width: 100%;
+}
+
+.need-cards .need__col {
+  /* live keeps col bottom-margin 8 AND leadgen top-margin 8 (separate BFC
+     wrappers); folding the col's 8 into its padding avoids margin collapse */
+  width: 83.3333%;
+  margin: 8px auto 0;
+  padding: 8px 0 72px;
+  /* live 10/12 col is capped with the 1440 grid (1920 probe: still 1200 wide,
+     centered) — cap it or the title/copy blocks re-wrap on wide viewports */
+  max-width: 1200px;
+}
+
+.need-cards .need__titlebox {
+  width: 83.3333%;
+  margin: 0 auto;
+  padding: 32px 15px 0;
+  font-family: var(--nc-body);
+  color: #C80F2F;
+}
+
+.need-cards .need__titlebox :is(h1, h2, h3) {
+  margin: 0;
+  font-family: var(--nc-display);
+  font-size: 76px;
+  font-weight: 500;
+  line-height: 83.6px;
+  color: #C80F2F;
+  text-align: center;
+}
+
+.need-cards .need__items {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  align-items: flex-start;
+  margin-top: 8px;
+}
+
+.need-cards .need__item { width: 500px; padding: 32px 0; }
+
+.need-cards .need__imgwrap { margin: 8px 0 0; text-align: center; }
+.need-cards .need__imgwrap p { margin: 0; line-height: 0; }
+.need-cards .need__imgwrap img {
+  display: block;
+  margin: 0 auto;
+  width: 148px;
+  height: auto;
+}
+
+.need-cards .need__text {
+  margin: 16px 15px 8px;
+  font-family: var(--nc-body);
+  color: #000;
+  text-align: center;
+}
+
+.need-cards .need__text :is(h3, h4) {
+  margin: 0;
+  font-family: var(--nc-display);
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 61.6px;
+  color: #000;
+}
+
+.need-cards .need__text p { margin: 0; font-size: 18px; line-height: 24px; }
+
+.need-cards .need__rule { margin: 8px 15px 0; padding: 8px 0; }
+/* live: the rule right after the items row has no top gap (items end == rule top) */
+.need-cards .need__items + .need__rule { margin-top: 0; }
+.need-cards .need__rule hr {
+  border: 0;
+  border-top: 1px solid transparent;
+  margin: 0;
+  height: 0;
+}
+
+.need-cards .where__text {
+  width: 83.3333%;
+  margin: 8px auto 0;
+  padding: 0 15px;
+  font-family: var(--nc-body);
+  color: #C80F2F;
+}
+
+.need-cards .where__text :is(h1, h2, h3) {
+  margin: 0;
+  font-family: var(--nc-display);
+  font-size: 76px;
+  font-weight: 500;
+  line-height: 83.6px;
+  color: #C80F2F;
+  text-align: center;
+}
+
+/* prototype renders a &nbsp; spacer (18px/24px) between title and copy —
+   folded into the copy's top margin */
+.need-cards .where__text p {
+  margin: 24px 0 0;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000;
+  text-align: center;
+}
+
+.need-cards .where__cta { margin: 8px 0; display: flex; justify-content: center; }
+.need-cards .where__cta p { margin: 0; }
+
+/* canon .btn (live .button-core) painted on the runtime-emitted anchor;
+   live carries letter-spacing on the <a> but resets it on an inner text
+   span, so the rendered glyph pitch is normal */
+.need-cards .where__cta a {
+  box-sizing: border-box;
+  font-family: var(--nc-body);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: normal;
+  font-size: 18px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 280px;
+  max-width: 100%;
+  padding: 14px;
+  height: 56px;
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  background-color: #C80F2E;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+.need-cards .where__cta a:hover {
+  opacity: 0.7;
+  text-decoration: none;
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  /* live mobile: the inner stripe container ends at the col end and the
+     stripe rides bottom:8 (measured rows 4011–4026 at 360) */
+  .need-cards .need__colwrap::after { bottom: 8px; }
+
+  .need-cards .need__pad { padding-bottom: 16px; }
+  .need-cards .need__col {
+    width: auto;
+    margin: 8px 0 0;
+    padding-bottom: 48px;
+  }
+  .need-cards .need__titlebox { width: auto; margin: 0 16px; padding: 16px 0 0; }
+  .need-cards .need__titlebox :is(h1, h2, h3) { font-size: 44px; line-height: 48.4px; }
+  .need-cards .need__items { gap: 0; }
+  .need-cards .need__item { width: 168px; padding: 16px 0; }
+  .need-cards .need__imgwrap img { width: 41.59px; }
+  .need-cards .need__text { margin: 16px 4px 8px; }
+  .need-cards .need__text :is(h3, h4) { font-size: 36px; line-height: 39.6px; }
+  .need-cards .need__text p { font-size: 16px; }
+  .need-cards .need__rule { margin: 8px 16px 0; }
+  .need-cards .where__text { width: auto; margin: 8px 16px 0; padding: 0; }
+  .need-cards .where__text :is(h1, h2, h3) { font-size: 44px; line-height: 48.4px; }
+  .need-cards .where__text p { font-size: 16px; }
+}

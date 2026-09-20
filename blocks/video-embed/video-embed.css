@@ -1,0 +1,42 @@
+/* video-embed — consent-gated YouTube iframe band (live .iframetext /
+   .iframealignment / .iframeEmbedded). Values lifted verbatim from
+   stardust/prototypes/play.css (.pembed__*). */
+
+.section.video-embed-container {
+  margin: 0;
+  padding: 0;
+  /* prototype renders an empty 16px container (pspacer, live
+     container-7e9dd49e7e) between the shop band and this band; an empty
+     section collapses in EDS, so its height rides this section's top pad */
+  padding-top: 16px;
+}
+
+.video-embed {
+  --ve-body: 'Graphik', 'Roboto', sans-serif;
+  padding: 8px 0;
+}
+
+.video-embed .pembed__align { padding: 20px 0; }
+
+.video-embed .pembed__wrap {
+  text-align: center;
+  /* live wrapper computes Graphik Regular 16px/22.8571 — the inline iframe's
+     line box adds the ~6.84px descender gap to the 906.84px wrap height */
+  font-family: var(--ve-body);
+  font-size: 16px;
+  line-height: 22.8571px;
+}
+
+/* live: no max-width clamp at desktop (iframe measures 1500 wide at 1440);
+   the 100% clamp only applies at mobile (measured 360 wide at 360) */
+.video-embed .pembed__wrap iframe {
+  width: 1500px;
+  height: 900px;
+  border: 0;
+}
+
+.video-embed .pembed__spacer { height: 30px; }
+
+@media (max-width: 767px) {
+  .video-embed .pembed__wrap iframe { max-width: 100%; }
+}

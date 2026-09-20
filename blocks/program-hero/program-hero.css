@@ -1,0 +1,189 @@
+/* program-hero — play (phero) + host (hhero) program-page hero bands.
+   Values lifted verbatim from stardust/prototypes/play.css (.phero__*) and
+   host.css (.hhero__*), re-scoped under the block class. Prototype spacer
+   paragraphs (<p>&nbsp;</p>, 24px line boxes) never survive the authoring
+   pipeline — their heights are folded into wrapper paddings (noted inline).
+   The section red stripe (canon .stripe-bottom) rides the block itself. */
+
+.section.program-hero-container {
+  margin: 0;
+  padding: 0;
+}
+
+.program-hero {
+  --ph-display: 'Graphik XXCond Bold', 'Roboto Condensed', sans-serif;
+  --ph-body: 'Graphik', 'Roboto', sans-serif;
+  position: relative;
+  background: #fff;
+  padding-bottom: 8px;
+}
+
+/* red stripe at the foot of the band (live .horizontal-bottom-red-stripe) */
+.program-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  height: 16px;
+  background-color: #C80F2F;
+  width: 100%;
+}
+
+/* ---- play variant (default) ------------------------------------------- */
+
+.program-hero .phero__row { display: flex; align-items: center; }
+.program-hero .phero__left {
+  width: 66.6667%;
+  padding: 64px 30px;
+}
+.program-hero .phero__leftinner { width: 87.5%; }
+.program-hero .phero__titlebox {
+  /* prototype pads 0 20px and renders 24px &nbsp; spacers above/below the h1
+     (phero__spacer, 18px/24px) — folded into padding here */
+  padding: 24px 20px;
+  font-family: var(--ph-body);
+  font-size: 18px;
+  line-height: 24px;
+  color: #0A2396;
+}
+.program-hero .phero__titlebox :is(h1, h2, h3) {
+  margin: 0;
+  font-family: var(--ph-display);
+  font-size: 100px;
+  font-weight: 500;
+  line-height: 110px;
+  color: #0A2396;
+}
+/* the red word rides <em> (prototype span.red; DA strips spans, keeps <em>) */
+.program-hero .phero__titlebox :is(h1, h2, h3) em {
+  color: #C80F2E;
+  font-style: normal;
+}
+/* hidden at both gate widths on live (aem-GridColumn--default--hide +
+   --tablet--hide; measured 0x0 at 1440 and 360) — mirrored DOM, never shown */
+.program-hero .phero__taglinebox { display: none; }
+.program-hero .phero__taglinebox p { font-size: 28px; line-height: 24px; }
+/* mobile-only hero photo band (live container-11527fe110: bg cover 50%) */
+.program-hero .phero__band { display: none; }
+.program-hero .phero__bodybox { margin: 8px 0; padding: 0 20px; }
+.program-hero .phero__bodybox p {
+  margin: 0;
+  font-family: var(--ph-body);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 34px;
+  color: #000;
+}
+/* desktop right photo column (live container-f2b09e6f36: 4/12, bg cover 50%) */
+.program-hero .phero__media {
+  width: 33.3333%;
+  height: 528px;
+  background: url('/assets/rbt-play-v1.jpg') 50% 50% / cover no-repeat;
+}
+/* an authored image replaces the decorative background as a cover layer */
+.program-hero .phero__media p { margin: 0; line-height: 0; height: 100%; }
+.program-hero .phero__media picture,
+.program-hero .phero__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- host variant (block class `host`) --------------------------------- */
+
+.program-hero.host .hhero__row { display: flex; align-items: center; }
+.program-hero.host .hhero__left {
+  width: 58.3333%;              /* live: 7/12 col, 840px at 1440 */
+  padding: 64px 30px 32px;
+}
+.program-hero.host .hhero__leftinner { width: 100%; }
+.program-hero.host .hhero__titlebox {
+  width: 66.6667%;              /* live: 8/12 of the nested grid + 20px pads */
+  margin-top: 8px;
+  padding: 0 20px;
+  font-family: var(--ph-body);
+  font-size: 18px;
+  line-height: 24px;
+  color: #0A2396;
+}
+.program-hero.host .hhero__titlebox :is(h1, h2, h3) {
+  margin: 0;
+  font-family: var(--ph-display);
+  font-size: 100px;
+  font-weight: 500;
+  line-height: 110px;
+  color: #0A2396;
+}
+/* mobile-only hero photo (live image-31c6e70bd1: default--hide, shown <768px) */
+.program-hero.host .hhero__imgbox { display: none; }
+/* transparent separator (live separator-ba902731dd: 7px margins + 4px pads
+   + the 8px AEM component margin -> 19px gaps each side) */
+.program-hero.host .hhero__rule { margin: 15px 0; padding: 4px 0; }
+.program-hero.host .hhero__rule hr {
+  border: 0;
+  border-top: 1px solid transparent;
+  margin: 0;
+  height: 0;
+}
+.program-hero.host .hhero__bodybox { margin: 0 0 8px; padding: 0 20px; }
+.program-hero.host .hhero__bodybox p {
+  margin: 0;
+  font-family: var(--ph-body);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 34px;
+  color: #000;
+}
+/* prototype's &nbsp; spacer between the two body paragraphs (18px/24px) —
+   folded into a 24px gap */
+.program-hero.host .hhero__bodybox p + p { margin-top: 24px; }
+/* desktop right photo column (live container-e0f14d4372: 5/12, bg cover 50%,
+   224px vertical pads + 57px separator content = 505px) */
+.program-hero.host .hhero__media {
+  width: 41.6667%;
+  padding: 224px 0;
+  background: url('/assets/host-red-ball.jpg') 50% 50% / cover no-repeat;
+}
+.program-hero.host .hhero__mediaspacer { height: 57px; margin: 0 15px; }
+
+/* ---- mobile (<768px) ---------------------------------------------------- */
+
+@media (max-width: 767px) {
+  /* play */
+  .program-hero .phero__row { flex-direction: column; align-items: stretch; }
+  .program-hero .phero__left { width: auto; padding: 32px 8px; }
+  .program-hero .phero__leftinner { width: auto; }
+  .program-hero .phero__titlebox { font-size: 16px; }
+  .program-hero .phero__titlebox :is(h1, h2, h3) { font-size: 54px; line-height: 59.4px; }
+  .program-hero .phero__band {
+    display: block;
+    height: 340px;
+    background: url('/assets/rbt-play-v1.jpg') 50% 50% / cover no-repeat;
+  }
+  .program-hero .phero__media { display: none; }
+
+  /* host: single column, photo between title and separator */
+  .program-hero.host .hhero__row { flex-direction: column; align-items: stretch; }
+  .program-hero.host .hhero__left { width: auto; padding: 32px 8px 16px; }
+  .program-hero.host .hhero__titlebox { width: auto; }
+  .program-hero.host .hhero__titlebox :is(h1, h2, h3) { font-size: 54px; line-height: 59.4px; }
+  /* padding-bottom, not margin-bottom: live AEM component wrappers are BFCs
+     so the 20px ADDS to the separator's 15px margin-top (no collapse) */
+  .program-hero.host .hhero__imgbox {
+    display: block;
+    margin: 16px 20px 0;
+    padding-bottom: 20px;
+  }
+  .program-hero.host .hhero__imgbox p { margin: 0; line-height: 0; }
+  /* live renders this img 304x230.38 at 360 (ratio 1.31955) — force the
+     rendered ratio or everything below shears */
+  .program-hero.host .hhero__imgbox img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 304 / 230.38;
+  }
+  .program-hero.host .hhero__media { display: none; }
+}

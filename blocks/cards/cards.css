@@ -1,27 +1,302 @@
-.cards > ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* cards — photo-card band on the blue ball-texture background.
+   Base skin = variant `photo` (stardust/prototypes/index.css section.cards);
+   variant `host` = the host page's fluid band (stardust/prototypes/host.css
+   section.hostfeat). Values lifted verbatim, rescoped under the block class.
+   Mobile overrides are written at each variant's own specificity (#109). */
+
+/* ---- base (variant: photo) --------------------------------------------- */
+
+.cards {
+  background: #fff;
+  padding: 8px 0;
+}
+
+.cards .cards-bg {
+  background: url('/assets/host-play-bg.jpg') 50% 50% / cover no-repeat;
+  display: flow-root; /* contain row margins like the live BFC wrappers */
+}
+
+/* live model: a 9/12 row, cards in a 12-col grid at columns 2–5 and 8–11,
+   15px col padding — fluid, not frozen px (verified at 1440 + 1920) */
+.cards .cards-row {
+  width: 75%;
+  margin: 8px auto;
+  padding: 64px 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(12, 1fr);
 }
 
-.cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+.cards .card {
+  padding: 0 15px;
+  margin: 8px 0;
+  display: flex;
+  flex-direction: column;
 }
 
-.cards .cards-card-body {
-  margin: 16px;
+.cards .cards-row > .card:nth-child(1) { grid-column: 2 / 6; }
+.cards .cards-row > .card:nth-child(2) { grid-column: 8 / 12; }
+
+.cards .card-media {
+  margin: 8px 0;
 }
 
-.cards .cards-card-image {
-  line-height: 0;
-}
-
-.cards > ul > li img {
+.cards .card-media img {
+  display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: auto;
+}
+
+.cards .card-copy :is(p) {
+  margin: 8px 0;
+  font-family: var(--font-semibold);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #fff;
+  text-align: center;
+}
+
+.cards .card-cta {
+  margin: 8px 0;
+  display: flex;
+}
+
+.cards .card-cta :is(p) {
+  margin: 0;
+  flex: 1 1 auto;
+  display: flex;
+}
+
+.cards .card-cta a.button {
+  width: 100%;
+  background-color: #fff;
+  border-color: transparent;
+  color: #000;
+}
+
+/* hidden live DOM mirrored as captured (never displayed at any width) */
+.cards .cards-row.cards-row-hidden {
+  display: none; /* specificity outranks the mobile display:flex */
+}
+
+.cards .cards-row-hidden h5 {
+  font-family: var(--font-semibold);
+  color: #fff;
+}
+
+/* host-scoped restatement: the variant row rule below is later in the file at
+   equal specificity — keep the mirrored hidden DOM hidden under .host too */
+.cards.host .cards-row.cards-row-hidden {
+  display: none;
+}
+
+/* ---- variant: host (section.hostfeat skin) ------------------------------ */
+
+.cards.host {
+  /* padding, not child margins: live's inner 8px bands ride INSIDE the bg
+     container (its box = 8 + cards + 8); margins would collapse through */
+  margin: 8px 0;
+  padding: 8px 0;
+  background: var(--court-blue) url('/assets/host-play-bg.jpg') 50% 50% / cover no-repeat;
+}
+
+.cards.host .cards-bg {
+  background: none;
+  display: block;
+  width: 75%; /* live: 9/12 col, 1080px at 1440, centered */
+  margin: 0 auto;
+  padding: 64px 0;
+}
+
+/* live band is FLUID: row padding 2.7778%, column gap 5.8824% of the row
+   content, cards 47.0588% each; the two card columns are vertically CENTERED */
+.cards.host .cards-row {
+  width: auto;
+  margin: 0;
+  padding: 0 2.7778%;
+  display: flex;
+  align-items: center;
+}
+
+.cards.host .card {
+  width: 47.0588%;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.cards.host .cards-row > .card:nth-child(1),
+.cards.host .cards-row > .card:nth-child(2) {
+  grid-column: auto;
+}
+
+.cards.host .cards-row > .card:nth-child(2) {
+  margin-left: 5.8824%;
+}
+
+.cards.host .card-media {
+  margin: 8px 15px 0;
+}
+
+.cards.host .card-media img {
+  display: block;
+  width: auto;
+  margin: 0 auto;
+  height: auto;
+}
+
+/* live image-c42391e345: 75% of the card content − 7.5px, centered */
+.cards.host .cards-row > .card:nth-child(1) .card-media img {
+  width: calc(75% - 7.5px);
+}
+
+/* live image-2511ffce28: fixed 340px, auto-centered in the card content */
+.cards.host .cards-row > .card:nth-child(2) .card-media img {
+  width: 340px;
+  max-width: none;
+}
+
+.cards.host .card-copy {
+  margin: 16px 15px 8px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
+  text-align: center;
+}
+
+.cards.host .card-copy :is(p) {
+  margin: 0;
+  font-family: var(--font-semibold);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+/* transparent separator, note and CTA ride the 15px-guttered full column */
+.cards.host .cards-rule {
+  margin: 36px 15px 0;
+}
+
+.cards.host .cards-rule hr {
+  border: 0;
+  border-top: 1px solid transparent;
+  margin: 0;
+  height: 0;
+}
+
+.cards.host .cards-note {
+  margin: 36px 15px 0;
+}
+
+.cards.host .cards-note :is(p) {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
+  text-align: center;
+}
+
+.cards.host .cards-band-cta {
+  margin: 16px 15px 8px;
+}
+
+.cards.host .cards-band-cta :is(p) {
+  margin: 0;
+}
+
+.cards.host .cards-band-cta a.button {
+  display: flex;
+  width: 280px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-color: transparent;
+  color: var(--ink);
+}
+
+/* ---- mobile (<768px) ---------------------------------------------------- */
+
+@media (width <= 767px) {
+  /* photo skin: 10/12 col, cards stack */
+  .cards .cards-row {
+    width: 83.3333%;
+    padding: 32px 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cards .card {
+    width: 100%;
+    padding: 0 4px;
+  }
+
+  /* host skin: 10/12 col, cards stack */
+  .cards.host .cards-bg {
+    width: auto;
+    margin: 0 30px;
+    padding: 32px 0;
+  }
+
+  .cards.host .cards-row {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+  }
+
+  .cards.host .card {
+    width: auto;
+    padding: 0 4px;
+  }
+
+  .cards.host .cards-row > .card:nth-child(1) {
+    margin-top: 8px;
+  }
+
+  .cards.host .cards-row > .card:nth-child(2) {
+    margin-top: 16px;
+    margin-left: 0;
+  }
+
+  .cards.host .card-media {
+    margin: 8px 0 0;
+  }
+
+  .cards.host .cards-row > .card:nth-child(1) .card-media img {
+    width: 100%;
+  }
+
+  /* live mobile artifact: IN THE WILD renders a 340px-wide image clipped to
+     its 292px column — mirror as an overflow-hidden box with the 340px img */
+  .cards.host .cards-row > .card:nth-child(2) .card-media {
+    overflow: hidden;
+  }
+
+  .cards.host .cards-row > .card:nth-child(2) .card-media img {
+    width: 340px;
+    max-width: none;
+  }
+
+  .cards.host .card-copy {
+    margin: 16px 0 8px;
+  }
+
+  .cards.host .cards-rule {
+    margin: 36px 4px 0;
+  }
+
+  .cards.host .cards-note {
+    margin: 36px 4px 0;
+  }
+
+  .cards.host .cards-note :is(p) {
+    font-size: 16px;
+  }
+
+  .cards.host .cards-band-cta {
+    margin: 16px 4px 8px;
+  }
+
+  .cards.host .cards-band-cta a.button {
+    margin: 0 6px;
+  }
 }
