@@ -382,7 +382,7 @@ main .section.shop .default-content-wrapper {
 }
 
 main .section.shop h2 {
-  margin: 8px auto;
+  margin: 0 auto;
   font-family: var(--font-display);
   font-size: 76px;
   font-weight: 500;
@@ -425,7 +425,14 @@ main .section.shop a.button {
 /* ---- section style: notfound (default content 404, lifted from 404.css) - */
 
 main .section.notfound {
-  padding: 64px 0 456px; /* tail: live small+medium+large pads 8+224+224 */
+  padding: 64px 0 464px; /* tail: live small+medium+large pads 8+224+224 + cta pb8 */
+}
+
+/* the live 404 has invisible <hr> separators (10px before the image, 24px
+   before the title, 50px before the CTA) — unauthorable in EDS default
+   content (an <hr> splits sections), so their heights fold into margins */
+main .section.notfound .default-content-wrapper > p:first-of-type {
+  margin-top: 18px; /* 8 + 10 sep */
 }
 
 main .section.notfound .default-content-wrapper {
@@ -448,7 +455,7 @@ main .section.notfound hr {
 }
 
 main .section.notfound h1, .section.notfound h2 {
-  margin: 8px 0;
+  margin: 40px 0 8px; /* 8 + 24 sep + 8 text pad */
   font-family: var(--font-display);
   font-size: 76px;
   font-weight: 500;
@@ -460,7 +467,7 @@ main .section.notfound h1, .section.notfound h2 {
 /* live 404 CTA is the default black pill, full width of a centered 6/12 col */
 main .section.notfound p.button-wrapper {
   width: calc(50% - 15px);
-  margin: 8px auto;
+  margin: 66px auto 8px; /* 8 + 50 sep + 8 cta pad */
 }
 
 main .section.notfound a.button {
@@ -504,7 +511,7 @@ main .section.notfound a.button {
   }
 
   main .section.notfound {
-    padding: 32px 0 232px; /* tail: 8+112+112 */
+    padding: 32px 0 240px; /* tail: 8+112+112 + cta pb8 */
   }
 
   main .section.notfound .default-content-wrapper {
@@ -512,6 +519,7 @@ main .section.notfound a.button {
     padding: 0 4px;
   }
 
+  main .section.notfound h1,
   main .section.notfound h2 {
     font-size: 44px;
     line-height: 48.4px;

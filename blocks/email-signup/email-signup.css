@@ -47,6 +47,7 @@
 }
 
 .email-signup .leadgen-cta-text :is(p) {
+  margin: 0;
   font-family: var(--font-semibold);
   font-size: 16px;
   line-height: 22px;
@@ -128,6 +129,7 @@
 }
 
 .email-signup .leadgen-terms :is(p) {
+  margin: 0;
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 22px;
